@@ -23,4 +23,26 @@ public class CustomerClientDELETE {
         System.debug(response.getStatusCode());
         System.debug(response.getBody());
     }
+    
+    
+    //===============================================
+    
+    
+    // CustomerClientDELETE.deleteCustomerById('66');     
+    public static void deleteCustomerById(String customerId) {
+        
+        Http http = new Http();
+        
+        HttpRequest request = new HttpRequest(); 
+        	request.setMethod('DELETE');
+        	request.setEndpoint('https://api.pathtosalesforce.com/customer.php?id='+customerId+'&token=' + TOKEN);
+        
+        HttpResponse response = http.send(request); 
+        
+        System.debug(response.getStatus());
+        System.debug(response.getStatusCode());
+        System.debug(response.getBody());
+        
+    }
+    
 }

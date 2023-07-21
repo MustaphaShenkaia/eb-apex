@@ -10,7 +10,7 @@ public class CustomerClientGET {
     //===============================================
     
     
-     // CustomerClientAPI.getCustomers();     
+     // CustomerClientGET.getCustomers();     
     public static void getCustomers() {
         
         Http http = new Http();
@@ -21,13 +21,30 @@ public class CustomerClientGET {
         
         HttpResponse response = http.send(request); 
         
-        if(response.getStatusCode() == 200) {
-            System.debug(response.getBody());
-            
-        } else {
-            System.debug(response.getStatus());
-            System.debug(response.getStatusCode());
-        }
+        System.debug(response.getStatus());
+        System.debug(response.getStatusCode());
+        System.debug(response.getBody());
+    }
+    
+    
+    //===============================================
+    
+    
+     // CustomerClientGET.getCustomer('64');     
+    public static void getCustomer(String customerId) {
+        
+        Http http = new Http();
+        
+        HttpRequest request = new HttpRequest(); 
+        	request.setMethod('GET');
+        	request.setEndpoint('https://api.pathtosalesforce.com/customerList.php?Id='+customerId+'&token=' + TOKEN);
+        
+        HttpResponse response = http.send(request); 
+        
+        System.debug(response.getStatus());
+        System.debug(response.getStatusCode());
+        System.debug(response.getBody());
+        
     }
     
 }
